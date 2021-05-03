@@ -3,6 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchPokes } from '../Actions/action';
 import Filter from './Filter';
 import { Link } from "react-router-dom";
+import red from '../ui/red.png';
+import yellow from '../ui/yellow.png';
+import silver from '../ui/silver.png';
+import black from '../ui/black.png';
+import gold from '../ui/gold.png';
 const Main = () => {
   const dispatch = useDispatch();
   const pending = useSelector(state => state.pokesReducer.pending);
@@ -15,15 +20,28 @@ const Main = () => {
   return (
     <div>
       <Filter />
-      {!pending ? filteredPokes.map((poke) => {
-        return (
-          <Link to={`/${poke.id}`}>
-            <h3>{poke.name}</h3>
-            <img width='100' src={`https://pokeres.bastionbot.org/images/pokemon/${poke.id}.png`} alt={poke.id} />
-          </Link>
-        )
-      }
-      ) : <h3>Pending</h3>}
+      <div className='grid-main'>
+        {!pending ? filteredPokes.map((poke) => {
+          const frames = [red, gold, black, silver, yellow];
+          let frame = red;
+          for (let i = 0; i < frames.length; i++) {
+            frame = frames[i];
+            if (i === (frames.length - 1)) {
+              i = 0;
+            }
+          }
+          return (
+            <Link to={`/${poke.id}`} className='link-bg' style={{ backgroundImage: `url(${frame})` }}>
+              <figure class="tint">
+                <img src={`https://pokeres.bastionbot.org/images/pokemon/${poke.id}.png`} alt={poke.id} className='pokemon' />
+                <h3>{poke.name}</h3>
+              </figure>
+
+            </Link>
+          )
+        }
+        ) : <h3>Pending</h3>}
+      </div>
     </div>
   );
 }

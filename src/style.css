@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+.grid-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 20px;
+  overflow: scroll;
+  background-image: url('./ui/bg.jpg');
+  background-position: 50% 0%;
+}
+.link-bg {
+  margin-top: 5px;
+  background-image: url('./ui/yellow.png');
+  background-size: 200px auto;
+  background-repeat: no-repeat;
+  background-position: 50% 20%;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #0074d9;
+  font-family: 'Orbitron', sans-serif;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+}
+.pokemon {
+  width: 150px;
+  margin-left: 5px;
+}
+.tint {
+  position: relative;
+  float: left;
+  cursor: pointer;
+  width: 200px;
+  height: 280px;
+}
+
+.tint:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -10px;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  transition: background 0.3s linear;
+  background: none;
+}
+
+.tint:hover:before {
+  background: rgba(0, 255, 255, 0.5);
+}
+.tint:hover {
+  color: #ff851b;
+}
