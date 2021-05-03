@@ -1,30 +1,22 @@
-// import { Link } from "react-router-dom";
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route
-// } from "react-router-dom";
 import Main from './Main';
-import Filter from './Filter';
+import Preview from './Preview';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 function App() {
 
   return (
     <div className="App">
       POKEMON
-      <Filter />
-      <Main />
+      <Router>
+        <Switch>
+          <Route path='/' exact component={Main} />
+          <Route path='/:id' children={<Preview />} />
+        </Switch>
+      </Router>
     </div>
   );
 }
-// const mapStateToProps = state => {
-//   return {
-//     pokes: state.pokesReducer.pokes,
-//     pending: state.pokesReducer.pending
-//   }
-// }
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     fetchPokes: () => dispatch(fetchPokes())
-//   }
-// }
 export default App;

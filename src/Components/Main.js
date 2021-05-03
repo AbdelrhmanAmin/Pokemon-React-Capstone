@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPokes } from '../Actions/action';
+import Filter from './Filter';
+import { Link } from "react-router-dom";
 const Main = () => {
   const dispatch = useDispatch();
   const pending = useSelector(state => state.pokesReducer.pending);
@@ -12,27 +14,17 @@ const Main = () => {
   const filteredPokes = filterPokes === '' ? pokes : pokes.filter((x) => x.name.toLowerCase().includes(filterPokes.toLowerCase()))
   return (
     <div>
+      <Filter />
       {!pending ? filteredPokes.map((poke) => {
         return (
-          <div>
+          <Link to={`/${poke.id}`}>
             <h3>{poke.name}</h3>
             <img width='100' src={`https://pokeres.bastionbot.org/images/pokemon/${poke.id}.png`} alt={poke.id} />
-          </div>
+          </Link>
         )
       }
       ) : <h3>Pending</h3>}
     </div>
   );
 }
-// const mapStateToProps = state => {
-//   return {
-//     pokes: state.pokesReducer.pokes,
-//     pending: state.pokesReducer.pending
-//   }
-// }
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     fetchPokes: () => dispatch(fetchPokes())
-//   }
-// }
 export default Main;
