@@ -2,19 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './Components/App';
-import Preview from './Components/Preview';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { rootReducer } from './Reducers/index';
+import { Provider } from 'react-redux'
+import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
+const middlewares = [thunk];
+const store = createStore(rootReducer, applyMiddleware(...middlewares));
+
 
 ReactDOM.render(
-  <Router>
-    <Switch>
-      <Route path='/' exact component={App} />
-      <Route path='/:id' exact component={Preview} />
-    </Switch>
-  </Router>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
