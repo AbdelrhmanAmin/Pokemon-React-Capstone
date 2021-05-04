@@ -117,7 +117,8 @@ ul {
   height: 20px;
   margin-right: 5px;
 }
-.abilities-list {
+.abilities-list,
+.right {
   font-family: 'MedievalSharp', cursive;
   color: white;
 }
@@ -145,4 +146,12 @@ ul {
   position: absolute;
   right: 0;
   top: 5px;
+}
+.preview-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.right {
+  margin-right: 35px;
 }

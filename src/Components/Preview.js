@@ -29,9 +29,12 @@ const Preview = () => {
               <img width='100' src={`https://pokeres.bastionbot.org/images/pokemon/${poke.id}.png`} alt={poke.id} />
               <img width='120' src={poke.sprites.back_default} alt={poke.id} />
             </div>
-            <div className='icon-ability'>
-              <img src={icon} alt='ability' className='icon' />
-              <strong>ABILITIES:</strong>
+            <div className='preview-flex'>
+              <div className='icon-ability'>
+                <img src={icon} alt='ability' className='icon' />
+                <strong>ABILITIES:</strong>
+              </div>
+              <strong className='right'>WEIGHT: {poke.weight}</strong>
             </div>
             <ul className='abilities-list'>
               {poke.abilities.map((ability) => {
