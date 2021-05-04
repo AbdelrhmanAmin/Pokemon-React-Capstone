@@ -1,11 +1,5 @@
-export const PENDING = 'PENDING';
 export const SUCCESS = 'SUCCESS';
 
-export const pokePending = () => {
-  return {
-    type: 'PENDING',
-  }
-}
 export const pokeSuccess = (pokes) => {
   return {
     type: 'SUCCESS',
@@ -30,7 +24,6 @@ export const fetchPokes = () => {
           .then(response => response.json())
           .then(res => {
             arr.push(res)
-            dispatch(pokePending())
             if (arr.length === 50) {
               dispatch(pokeSuccess(arr))
             }

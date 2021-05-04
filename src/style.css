@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 /* Works on Chrome, Edge, and Safari */
 .App-strong {
   color: white;
@@ -24,7 +25,7 @@
   overflow-y: scroll;
   height: 350px;
   background-image: url('./ui/bg.jpg');
-  background-position: 50% 25%;
+  background-position: 50% 22%;
   border: 1px dashed #222222;
 }
 .link-bg {
@@ -72,4 +73,76 @@
 }
 .tint:hover {
   color: #85144b;
+}
+ul {
+  list-style-type: none;
+}
+.icon-ability {
+  display: flex;
+  align-items: center;
+}
+.icon-ability > img {
+  margin-right: 10px;
+}
+.preview-container {
+  background-image: url(./ui/bg-preview.png);
+  width: 480px;
+  height: 380px;
+  background-position: 50% 0;
+  position: relative;
+}
+.poke-name {
+  color: white;
+  margin-left: 40px;
+  padding-top: 8px;
+  text-transform: capitalize;
+  font-family: 'MedievalSharp', cursive;
+}
+.poke-imgs {
+  display: flex;
+  justify-content: center;
+}
+.icon-ability {
+  display: flex;
+  justify-content: left;
+  margin-left: 35px;
+  font-family: 'MedievalSharp', cursive;
+  color: white;
+}
+.icon {
+  transform: rotate(180deg);
+}
+.fire {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.abilities-list {
+  font-family: 'MedievalSharp', cursive;
+  color: white;
+}
+.pend {
+  font-family: 'MedievalSharp', cursive;
+  color: white;
+  position: absolute;
+  left: 40%;
+  top: 40%;
+}
+.ability-list {
+  display: flex;
+  align-items: center;
+}
+.icon-home {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  left: 0;
+  top: 5px;
+}
+.icon-github {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  right: 0;
+  top: 5px;
 }

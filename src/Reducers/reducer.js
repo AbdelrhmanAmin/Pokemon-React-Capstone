@@ -1,17 +1,11 @@
 
 const initialState = {
-  pending: false,
   pokes: [],
   filter: ''
 }
 
 export function pokesReducer(state = initialState, action) {
   switch (action.type) {
-    case 'PENDING':
-      return {
-        ...state,
-        pending: true
-      }
     case 'SUCCESS':
       return {
         ...state,

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPokes } from '../Actions/action';
 import Filter from './Filter';
@@ -12,7 +12,8 @@ import green from '../ui/green.png';
 import orange from '../ui/orange.png';
 const Main = () => {
   const dispatch = useDispatch();
-  const pending = useSelector(state => state.pokesReducer.pending);
+  const [pending, setPending] = useState(true)
+  setTimeout(() => setPending(false), 2000)
   const pokes = useSelector(state => state.pokesReducer.pokes);
   const filterPokes = useSelector(state => state.pokesReducer.filter);
   const frames = [red, yellow, silver, sky, gold, green, orange];
@@ -23,6 +24,7 @@ const Main = () => {
   const filteredPokes = filterPokes === '' ? pokes : pokes.filter((x) => x.name.toLowerCase().includes(filterPokes.toLowerCase()))
   return (
     <div className='container'>
+      <strong className='App-strong'>Gotta Catch Em All!</strong>
       {!pending ?
         (
           <div>
@@ -45,7 +47,7 @@ const Main = () => {
             </div>
           </div>
         )
-        : <h3>Pending</h3>
+        : <h1 className='pend'>Pending</h1>
       }
     </div>
   );

@@ -9,8 +9,7 @@ import '../style.css';
 function App() {
 
   return (
-    <div className="App">
-      <strong className='App-strong'>Gotta Catch Em All!</strong>
+    <div>
       <Router>
         <Switch>
           <Route path='/' exact component={Main} />
