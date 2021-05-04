@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "compass-mixins": "^0.12.10",
     "node-sass": "^5.0.0",
@@ -20,8 +19,19 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
+    "test:watch": "npm test -- --watch",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "scss"
+    ],
+    "transform": {
+      "^.+\\.scss$": "sass-jest"
+    },
+    "testRegex": "__tests__/.*\\.(js|scss)$"
   },
   "eslintConfig": {
     "extends": [
@@ -40,5 +50,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.1",
+    "@babel/preset-react": "^7.13.13",
+    "@testing-library/react": "^11.2.6",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3",
+    "react-test-renderer": "^17.0.2",
+    "sass-jest": "^0.1.7"
   }
 }
