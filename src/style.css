@@ -1,15 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+/* Works on Chrome, Edge, and Safari */
+.App-strong {
+  color: white;
+}
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: orange;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 20px;
+  border: 3px solid orange;
+}
 .grid-main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: 20px;
-  overflow: scroll;
+  background-color: #222222;
+  overflow-y: scroll;
+  height: 350px;
   background-image: url('./ui/bg.jpg');
-  background-position: 50% 0%;
+  background-position: 50% 25%;
+  border: 1px dashed #222222;
 }
 .link-bg {
   margin-top: 5px;
-  background-image: url('./ui/yellow.png');
   background-size: 200px auto;
   background-repeat: no-repeat;
   background-position: 50% 20%;
@@ -24,8 +43,9 @@
   text-align: center;
 }
 .pokemon {
-  width: 150px;
+  width: 115px;
   margin-left: 5px;
+  margin-top: 15px;
 }
 .tint {
   position: relative;
@@ -39,7 +59,7 @@
   content: '';
   display: block;
   position: absolute;
-  top: -10px;
+  top: -15px;
   bottom: 5px;
   left: 0;
   right: 0;
@@ -51,5 +71,5 @@
   background: rgba(0, 255, 255, 0.5);
 }
 .tint:hover {
-  color: #ff851b;
+  color: #85144b;
 }

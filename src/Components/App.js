@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-      POKEMON
+      <strong className='App-strong'>Gotta Catch Em All!</strong>
       <Router>
         <Switch>
           <Route path='/' exact component={Main} />
