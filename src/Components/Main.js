@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { fetchPokes } from '../Actions/action';
 import Filter from './Filter';
 import { Link } from "react-router-dom";
@@ -10,14 +10,20 @@ import sky from '../ui/sky.png';
 import gold from '../ui/gold.png';
 import green from '../ui/green.png';
 import orange from '../ui/orange.png';
-const Main = ({ pokes, filterPokes, fetcher }) => {
+const Main = ({ pokes, filterPokes, fetcher = fetchPokes() }) => {
   const [pending, setPending] = useState(true)
-  setTimeout(() => setPending(false), 2000)
   const frames = [red, yellow, silver, sky, gold, green, orange];
   let i = 0;
+  const dispatch = useDispatch();
   useEffect(() => {
-    fetcher();
-  }, [fetcher])
+    dispatch(fetcher)
+    let timer1 = setTimeout(() => {
+      setPending(false)
+    }, 2000)
+    return () => {
+      clearTimeout(timer1);
+    };
+  }, [])
   const filteredPokes = filterPokes === '' ? pokes : pokes.filter((x) => x.name.toLowerCase().includes(filterPokes.toLowerCase()))
   return (
     <div className='container'>
@@ -25,6 +31,8 @@ const Main = ({ pokes, filterPokes, fetcher }) => {
       {!pending ?
         (
           <div>
+            <div>
+            </div>
             <Filter />
             <div className='grid-main'>
               {filteredPokes.map((poke) => {
@@ -33,10 +41,10 @@ const Main = ({ pokes, filterPokes, fetcher }) => {
                   i = 0;
                 }
                 return (
-                  <Link to={`/${poke.id}`} className='link-bg' style={{ backgroundImage: `url(${frames[i]})` }}>
+                  <Link to={`/${poke.id}`} className='link-bg' style={{ backgroundImage: `url(${frames[i]})` }} key={Math.random()}>
                     <figure className="tint">
                       <img src={`https://pokeres.bastionbot.org/images/pokemon/${poke.id}.png`} alt={poke.id} className='pokemon' />
-                      <h3>{poke.name}</h3>
+                      <h3 className={`h-${i}`}>{poke.name}</h3>
                     </figure>
                   </Link>
                 )
@@ -55,9 +63,4 @@ const mapStateToProps = (state) => {
     filterPokes: state.pokesReducer.filter,
   }
 }
-const mapDispatchToProps = (dispatch) => ({
-  fetcher: () => {
-    dispatch(fetchPokes());
-  },
-})
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, null)(Main);

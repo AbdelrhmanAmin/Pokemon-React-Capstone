@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { fetchPokes } from '../Actions/action';
 import icon from '../ui/ability.png'
 import fire from '../ui/fire.png'
 import home from '../ui/home.png'
 import github from '../ui/github.png'
-const Preview = ({ pokes }) => {
+const Preview = ({ pokes, fetcher = fetchPokes) }) => {
   const [pending, setPending] = useState(true)
   const { id } = useParams();
   const poke = pokes.filter((x) => x.id.toString() === id)[0]
-  setTimeout(() => setPending(false), 2000)
+  const dispatch = useDispatch();
   useEffect(() => {
-    fetchPokes()
+    dispatch(fetcher)
+    let timer1 = setTimeout(() => {
+      setPending(false)
+    }, 2000)
+    return () => {
+      clearTimeout(timer1);
+    };
   }, [])
   return (
     <div className='preview-container' >
@@ -38,7 +44,7 @@ const Preview = ({ pokes }) => {
             <ul className='abilities-list'>
               {poke.abilities.map((ability) => {
                 return (
-                  <li className='ability-list'>
+                  <li className='ability-list' key={Math.random()}>
                     <img src={fire} alt='fire' className='fire' />{ability.ability.name}
                   </li>
                 )
@@ -55,9 +61,4 @@ const mapStateToProps = (state) => {
     pokes: state.pokesReducer.pokes,
   }
 }
-const mapDispatchToProps = (dispatch) => ({
-  fetcher: () => {
-    dispatch(fetchPokes());
-  },
-})
-export default connect(mapStateToProps, mapDispatchToProps)(Preview);
+export default connect(mapStateToProps, null)(Preview);
