@@ -6,6 +6,7 @@ import {
   Route
 } from "react-router-dom";
 import '../style.css';
+import '../btn.scss';
 function App() {
 
   return (

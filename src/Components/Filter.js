@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { pokeFilter } from '../Actions/action';
-import '../btn.scss';
+
 const Filter = () => {
   const dispatch = useDispatch();
   return (

@@ -9,7 +9,6 @@ export function pokesReducer(state = initialState, action) {
     case 'SUCCESS':
       return {
         ...state,
-        pending: false,
         pokes: action.payload
       }
     case 'FILTER':
