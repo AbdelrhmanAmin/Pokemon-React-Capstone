@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import { fetchPokes } from '../Actions/action';
 import Filter from './Filter';
 import { Link } from "react-router-dom";
@@ -10,17 +10,14 @@ import sky from '../ui/sky.png';
 import gold from '../ui/gold.png';
 import green from '../ui/green.png';
 import orange from '../ui/orange.png';
-const Main = () => {
-  const dispatch = useDispatch();
+const Main = ({ pokes, filterPokes, fetcher }) => {
   const [pending, setPending] = useState(true)
   setTimeout(() => setPending(false), 2000)
-  const pokes = useSelector(state => state.pokesReducer.pokes);
-  const filterPokes = useSelector(state => state.pokesReducer.filter);
   const frames = [red, yellow, silver, sky, gold, green, orange];
   let i = 0;
   useEffect(() => {
-    dispatch(fetchPokes());
-  }, [dispatch])
+    fetcher();
+  }, [fetcher])
   const filteredPokes = filterPokes === '' ? pokes : pokes.filter((x) => x.name.toLowerCase().includes(filterPokes.toLowerCase()))
   return (
     <div className='container'>
@@ -52,4 +49,15 @@ const Main = () => {
     </div>
   );
 }
-export default Main;
+const mapStateToProps = (state) => {
+  return {
+    pokes: state.pokesReducer.pokes,
+    filterPokes: state.pokesReducer.filter,
+  }
+}
+const mapDispatchToProps = (dispatch) => ({
+  fetcher: () => {
+    dispatch(fetchPokes());
+  },
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

@@ -17,14 +17,14 @@ export const pokeFilter = (filter) => {
 export const fetchPokes = () => {
   return (dispatch) => {
     const arr = [];
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=50')
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=25')
       .then(res => res.json())
       .then(allpokes => allpokes.results.forEach((pokemon) => {
         fetch(pokemon.url)
           .then(response => response.json())
           .then(res => {
             arr.push(res)
-            if (arr.length === 50) {
+            if (arr.length === 25) {
               dispatch(pokeSuccess(arr))
             }
           })

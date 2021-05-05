@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import { fetchPokes } from '../Actions/action';
 import icon from '../ui/ability.png'
 import fire from '../ui/fire.png'
 import home from '../ui/home.png'
 import github from '../ui/github.png'
-const Preview = () => {
+const Preview = ({ pokes }) => {
   const [pending, setPending] = useState(true)
-  const pokes = useSelector(state => state.pokesReducer.pokes);
   const { id } = useParams();
-  const dispatch = useDispatch();
   const poke = pokes.filter((x) => x.id.toString() === id)[0]
   setTimeout(() => setPending(false), 2000)
   useEffect(() => {
-    dispatch(fetchPokes());
-  }, [dispatch])
+    fetchPokes()
+  }, [])
   return (
     <div className='preview-container' >
       <a href='/'><img className='icon-home' alt='icon' src={home} /></a>
       <a href='https://github.com/AbdelrhmanAmin/Pokemon-React-Capstone' target="#"><img className='icon-github' alt='icon' src={github} /></a>
+
       {
         !pending ?
           <div>
@@ -51,5 +50,14 @@ const Preview = () => {
     </div>
   );
 }
-
-export default Preview;
+const mapStateToProps = (state) => {
+  return {
+    pokes: state.pokesReducer.pokes,
+  }
+}
+const mapDispatchToProps = (dispatch) => ({
+  fetcher: () => {
+    dispatch(fetchPokes());
+  },
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Preview);
