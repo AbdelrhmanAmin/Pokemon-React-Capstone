@@ -124,10 +124,10 @@ ul {
 }
 .pend {
   font-family: 'MedievalSharp', cursive;
-  color: white;
+  color: black;
   position: absolute;
-  left: 40%;
-  top: 40%;
+  left: 43%;
+  top: 10%;
 }
 .ability-list {
   display: flex;
