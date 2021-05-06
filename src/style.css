@@ -17,6 +17,18 @@
   border-radius: 20px;
   border: 3px solid orange;
 }
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  background-color: #222222;
+  background-image: url('./ui/bg.jpg');
+  background-position: 50% 50%;
+}
+
 .grid-main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -25,8 +37,19 @@
   overflow-y: scroll;
   height: 350px;
   background-image: url('./ui/bg.jpg');
-  background-position: 50% 22%;
+  background-position: 50% 60%;
   border: 1px dashed #222222;
+}
+@media only screen and (max-width: 1125px) {
+  .grid-main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .grid-main {
+    grid-template-columns: 1fr;
+    background-position: 50% 60%;
+  }
 }
 .link-bg {
   margin-top: 5px;

@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Preview from '../Components/Preview';
+
 describe('rendered Preview elements', () => {
   let renderedComponent;
   beforeEach(() => {
@@ -9,34 +10,34 @@ describe('rendered Preview elements', () => {
       id: 30,
       name: 'nidorina1',
       sprites: {
-        back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png",
-        front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
+        back_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png',
+        front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png',
       },
       abilities: [
         {
           ability: {
-            name: "overgrow",
-            url: "https://pokeapi.co/api/v2/ability/65/"
+            name: 'overgrow',
+            url: 'https://pokeapi.co/api/v2/ability/65/',
           },
           is_hidden: false,
-          slot: 1
+          slot: 1,
         },
         {
           ability: {
-            name: "chlorophyll",
-            url: "https://pokeapi.co/api/v2/ability/34/"
+            name: 'chlorophyll',
+            url: 'https://pokeapi.co/api/v2/ability/34/',
           },
           is_hidden: true,
-          slot: 3
-        }
+          slot: 3,
+        },
       ],
       weight: 200,
-      height: 8
+      height: 8,
     };
     renderedComponent = render(
-      <Preview poke={poke} />
+      <Preview poke={poke} />,
     );
-  })
+  });
   it('has an img with class icon-home', () => {
     const { container } = renderedComponent;
     const appElement = container.querySelector('.icon-home');
@@ -81,34 +82,34 @@ describe('rendered Preview roles', () => {
       id: 30,
       name: 'nidorina1',
       sprites: {
-        back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png",
-        front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
+        back_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png',
+        front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png',
       },
       abilities: [
         {
           ability: {
-            name: "overgrow",
-            url: "https://pokeapi.co/api/v2/ability/65/"
+            name: 'overgrow',
+            url: 'https://pokeapi.co/api/v2/ability/65/',
           },
           is_hidden: false,
-          slot: 1
+          slot: 1,
         },
         {
           ability: {
-            name: "chlorophyll",
-            url: "https://pokeapi.co/api/v2/ability/34/"
+            name: 'chlorophyll',
+            url: 'https://pokeapi.co/api/v2/ability/34/',
           },
           is_hidden: true,
-          slot: 3
-        }
+          slot: 3,
+        },
       ],
       weight: 200,
-      height: 8
+      height: 8,
     };
     renderedComponent = render(
-      <Preview poke={poke} />
+      <Preview poke={poke} />,
     );
-  })
+  });
   it('renders the link for the icon', () => {
     const { getAllByRole } = renderedComponent;
     const main = getAllByRole('link', { name: 'icon' })[0];
@@ -154,5 +155,4 @@ describe('rendered Preview roles', () => {
     const main = getAllByRole('listitem', { name: '' })[0];
     expect(main).toBeInTheDocument();
   });
-
 });

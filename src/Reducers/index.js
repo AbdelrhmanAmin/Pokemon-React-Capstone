@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux';
-import { pokesReducer } from './reducer';
-import { applyMiddleware, createStore } from 'redux';
+import { combineReducers, applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
+import pokesReducer from './reducer';
+
 const middlewares = [thunk];
-export const rootReducer = combineReducers({ pokesReducer })
-export default createStore(rootReducer, applyMiddleware(...middlewares)); 
+export const rootReducer = combineReducers({ pokesReducer });
+export default createStore(rootReducer, applyMiddleware(...middlewares));

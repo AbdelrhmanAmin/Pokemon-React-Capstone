@@ -22,20 +22,7 @@ The inspiration for the styling came while I was listening to a death metal song
 
 ## Video
 
-### Description of the project and demo of features and code:
-
-[![Watch the video](./v1.png)](https://www.loom.com/share/15bd13b5c2424affb7ded246530177be)
-
-### Explain:
-
-- React & Virtual DOM
-- One way data flow in redux
-- When redux is useful in Single Page Application
-  [![Watch the video](./v2.png)](https://www.loom.com/share/d6fd6bd8c5a347d38501c50d272d5c6e)
-
-### What got you excited about software development during this course?
-
-https://www.loom.com/share/ea575bdb8f2d40008c754875e69d3567
+[![Watch the video](./v1.png)](https://gist.github.com/AbdelrhmanAmin/6b173a70b2107bedcae8549c95c50d66)
 
 ## Live Demo
 

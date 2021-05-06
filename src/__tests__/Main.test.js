@@ -2,12 +2,12 @@ import React from 'react';
 import { render, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom';
 import { pokeSuccess } from '../Actions/action';
 import store from '../Reducers';
 import Main from '../Components/Main';
-import {
-  BrowserRouter as Router
-} from "react-router-dom";
 
 describe('rendered Main elements', () => {
   let renderedComponent;
@@ -16,42 +16,42 @@ describe('rendered Main elements', () => {
       id: 30,
       name: 'nidorina1',
       sprites: {
-        back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png",
-        front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
+        back_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png',
+        front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png',
       },
       weight: 200,
-      height: 8
+      height: 8,
     }, {
       id: 30,
       name: 'nidorina2',
       sprites: {
-        back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png",
-        front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
+        back_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png',
+        front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png',
       },
       weight: 200,
-      height: 8
+      height: 8,
     }, {
       id: 30,
       name: 'nidorina3',
       sprites: {
-        back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png",
-        front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
+        back_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png',
+        front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png',
       },
       weight: 200,
-      height: 8
+      height: 8,
     }];
     jest.useFakeTimers();
     act(() => {
       renderedComponent = render(
         <Provider store={store}>
           <Router>
-            <Main pokes={pokes} filterPokes='' fetcher={pokeSuccess(pokes)} />
+            <Main pokes={pokes} filterPokes="" fetcher={pokeSuccess(pokes)} />
           </Router>
         </Provider>,
       );
       jest.advanceTimersByTime(2200);
     });
-  })
+  });
   it('has a figure with class tint', () => {
     const { container } = renderedComponent;
     const appElement = container.querySelector('.tint');
@@ -81,7 +81,7 @@ describe('rendered Main elements', () => {
   it('renders the bg', () => {
     const { container } = renderedComponent;
     const appElement = container.querySelector('.link-bg');
-    expect(appElement).toBeInTheDocument()
+    expect(appElement).toBeInTheDocument();
   });
 });
 describe('rendered Main roles', () => {
@@ -91,42 +91,42 @@ describe('rendered Main roles', () => {
       id: 30,
       name: 'nidorina1',
       sprites: {
-        back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png",
-        front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
+        back_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png',
+        front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png',
       },
       weight: 200,
-      height: 8
+      height: 8,
     }, {
       id: 30,
       name: 'nidorina2',
       sprites: {
-        back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png",
-        front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
+        back_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png',
+        front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png',
       },
       weight: 200,
-      height: 8
+      height: 8,
     }, {
       id: 30,
       name: 'nidorina3',
       sprites: {
-        back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png",
-        front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
+        back_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png',
+        front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png',
       },
       weight: 200,
-      height: 8
+      height: 8,
     }];
     jest.useFakeTimers();
     act(() => {
       renderedComponent = render(
         <Provider store={store}>
           <Router>
-            <Main pokes={pokes} filterPokes='' fetcher={pokeSuccess(pokes)} />
+            <Main pokes={pokes} filterPokes="" fetcher={pokeSuccess(pokes)} />
           </Router>
         </Provider>,
       );
       jest.advanceTimersByTime(2200);
     });
-  })
+  });
   it('renders the input form', () => {
     const { getByRole } = renderedComponent;
     const main = getByRole('textbox', { name: 'Pika! Pika!' });

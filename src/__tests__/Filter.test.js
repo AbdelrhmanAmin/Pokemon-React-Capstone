@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Filter from '../Components/Filter';
 import { Provider } from 'react-redux';
+import Filter from '../Components/Filter';
 import store from '../Reducers';
 
 describe('rendered Main', () => {
@@ -11,9 +11,9 @@ describe('rendered Main', () => {
     renderedComponent = render(
       <Provider store={store}>
         <Filter />
-      </Provider>
+      </Provider>,
     );
-  })
+  });
   it('renders the input form', () => {
     const { getByRole } = renderedComponent;
     const main = getByRole('textbox', { name: 'Pika! Pika!' });

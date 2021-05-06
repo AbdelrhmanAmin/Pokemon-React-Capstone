@@ -1,26 +1,22 @@
-
 const initialState = {
   pokes: [],
-  filter: ''
-}
+  filter: '',
+};
 
-export function pokesReducer(state = initialState, action) {
+export default function pokesReducer(state = initialState, action) {
   switch (action.type) {
     case 'SUCCESS':
       return {
         ...state,
         pending: false,
-        pokes: action.payload
-      }
+        pokes: action.payload,
+      };
     case 'FILTER':
       return {
         ...state,
-        filter: action.filter
-      }
+        filter: action.filter,
+      };
     default:
       return state;
   }
 }
-
-// export const getPokes = state => state.pokes;
-// export const getPokesPending = state => state.pending;
