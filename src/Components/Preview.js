@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import {
   useLocation
@@ -8,6 +7,7 @@ import icon from '../ui/ability.png'
 import fire from '../ui/fire.png'
 import home from '../ui/home.png'
 import github from '../ui/github.png'
+
 const Preview = ({ poke }) => {
   if (poke === undefined) {
     const location = useLocation();
