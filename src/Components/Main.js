@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { fetchPokes } from '../Actions/action';

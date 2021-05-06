@@ -155,3 +155,8 @@ ul {
 .right {
   margin-right: 35px;
 }
+.flex-right {
+  display: flex;
+  flex-direction: column;
+  padding-top: 25px;
+}
