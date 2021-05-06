@@ -1,6 +1,9 @@
 # Pokemon-Gallery
 
-A React-Redux project that displays pokemon cards using PokeAPI with cool vaperwave, sci-fi, and medieval style.
+> A React-Redux project that displays pokemon cards using PokeAPI with cool vaperwave, sci-fi, and medieval style.
+> ![Screenshot](./screen1.png)
+> ![Screenshot](./screen2.png)
+
 The inspiration for the styling came while I was listening to a death metal song called "Lai Lai Hei" by a finnish band called "Ensiferum" which you can see on the medieval panel on the preview page that displays the poke's abilities, Then later I was listening to DOOM ETERNAL OST while I was riping and tearing some code I got the inspiration to use SCI-FI theme to display the cards. Lastly, I was relaxing with some Synthwave retrowave music and you can see this on the background image.
 
 ## Built with
@@ -17,11 +20,6 @@ The inspiration for the styling came while I was listening to a death metal song
 - npm
 - CSS
 - ES6
-
-## Screenshots
-
-![Screenshot](./screen1.png)
-![Screenshot](./screen2.png)
 
 ## Live Demo
 
