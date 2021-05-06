@@ -11,6 +11,7 @@ import sky from '../ui/sky.png';
 import gold from '../ui/gold.png';
 import green from '../ui/green.png';
 import orange from '../ui/orange.png';
+import text from '../ui/text.png';
 const Main = ({ pokes, filterPokes, fetcher = fetchPokes() }) => {
   const [pending, setPending] = useState(true)
   const frames = [red, yellow, silver, sky, gold, green, orange];
@@ -28,7 +29,10 @@ const Main = ({ pokes, filterPokes, fetcher = fetchPokes() }) => {
   const filteredPokes = filterPokes === '' ? pokes : pokes.filter((x) => x.name.toLowerCase().includes(filterPokes.toLowerCase()))
   return (
     <div className='container'>
-      <strong className='App-strong'>Gotta Catch Em All!</strong>
+      <div className='flex-img'>
+        <img src={text} alt='text-img' width='150' />
+        <strong className='App-strong'>Gotta Catch Em All!</strong>
+      </div>
       {!pending ?
         (
           <div>

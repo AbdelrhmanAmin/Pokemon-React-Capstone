@@ -160,3 +160,8 @@ ul {
   flex-direction: column;
   padding-top: 25px;
 }
+.flex-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
