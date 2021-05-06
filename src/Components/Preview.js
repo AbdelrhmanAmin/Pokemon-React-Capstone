@@ -27,7 +27,7 @@ const Preview = ({ poke }) => {
         </div>
         <div className="preview-flex">
           <div className="icon-ability">
-            <img src={icon} alt="ability" className="icon" />
+            <img src={icon} alt="ability" className="icon ability-icon-img" />
             <strong>ABILITIES:</strong>
           </div>
           <div className="flex-right">

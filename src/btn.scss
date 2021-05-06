@@ -2,11 +2,21 @@ $primary: #11998e;
 $secondary: #38ef7d;
 $white: #fff;
 $gray: #9b9b9b;
+
 .form__group {
   position: relative;
   padding: 15px 0 0;
   margin-top: 10px;
   width: 50%;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: $gray;
 }
 
 .form__field {
@@ -30,15 +40,10 @@ $gray: #9b9b9b;
     cursor: text;
     top: 20px;
   }
-}
-
-.form__label {
-  position: absolute;
-  top: 0;
-  display: block;
-  transition: 0.2s;
-  font-size: 1rem;
-  color: $gray;
+  &:required,
+  &:invalid {
+    box-shadow: none;
+  }
 }
 
 .form__field:focus {
@@ -51,16 +56,10 @@ $gray: #9b9b9b;
     color: $primary;
     font-weight: 700;
   }
+
   padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
   border-image: linear-gradient(to right, $primary, $secondary);
   border-image-slice: 1;
-}
-/* reset input */
-.form__field {
-  &:required,
-  &:invalid {
-    box-shadow: none;
-  }
 }

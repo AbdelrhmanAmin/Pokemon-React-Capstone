@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
 /* Works on Chrome, Edge, and Safari */
 .App-strong {
   color: white;
 }
+
 *::-webkit-scrollbar {
   width: 12px;
 }
@@ -17,6 +19,7 @@
   border-radius: 20px;
   border: 3px solid orange;
 }
+
 body {
   font-family: 'Poppins', sans-serif;
   display: flex;
@@ -24,7 +27,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  background-color: #222222;
+  background-color: #222;
   background-image: url('./ui/bg.jpg');
   background-position: 50% 50%;
 }
@@ -33,24 +36,27 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: 20px;
-  background-color: #222222;
+  background-color: #222;
   overflow-y: scroll;
   height: 350px;
   background-image: url('./ui/bg.jpg');
   background-position: 50% 60%;
-  border: 1px dashed #222222;
+  border: 1px dashed #222;
 }
+
 @media only screen and (max-width: 1125px) {
   .grid-main {
     grid-template-columns: 1fr 1fr;
   }
 }
+
 @media only screen and (max-width: 600px) {
   .grid-main {
     grid-template-columns: 1fr;
     background-position: 50% 60%;
   }
 }
+
 .link-bg {
   margin-top: 5px;
   background-size: 200px auto;
@@ -66,11 +72,13 @@ body {
   transition: all 0.2s ease-in-out;
   text-align: center;
 }
+
 .pokemon {
   width: 115px;
   margin-left: 5px;
   margin-top: 15px;
 }
+
 .tint {
   position: relative;
   float: left;
@@ -79,7 +87,7 @@ body {
   height: 280px;
 }
 
-.tint:before {
+.tint::before {
   content: '';
   display: block;
   position: absolute;
@@ -91,22 +99,22 @@ body {
   background: none;
 }
 
-.tint:hover:before {
+.tint:hover::before {
   background: rgba(0, 255, 255, 0.5);
 }
+
 .tint:hover {
   color: #85144b;
 }
+
 ul {
   list-style-type: none;
 }
-.icon-ability {
-  display: flex;
-  align-items: center;
-}
-.icon-ability > img {
+
+.ability-icon-img {
   margin-right: 10px;
 }
+
 .preview-container {
   background-image: url(./ui/bg-preview.png);
   width: 480px;
@@ -114,6 +122,7 @@ ul {
   background-position: 50% 0;
   position: relative;
 }
+
 .poke-name {
   color: white;
   margin-left: 40px;
@@ -121,30 +130,37 @@ ul {
   text-transform: capitalize;
   font-family: 'MedievalSharp', cursive;
 }
+
 .poke-imgs {
   display: flex;
   justify-content: center;
 }
+
 .icon-ability {
   display: flex;
   justify-content: left;
   margin-left: 35px;
   font-family: 'MedievalSharp', cursive;
+  align-items: center;
   color: white;
 }
+
 .icon {
   transform: rotate(180deg);
 }
+
 .fire {
   width: 20px;
   height: 20px;
   margin-right: 5px;
 }
+
 .abilities-list,
 .right {
   font-family: 'MedievalSharp', cursive;
   color: white;
 }
+
 .pend {
   font-family: 'MedievalSharp', cursive;
   color: black;
@@ -152,10 +168,12 @@ ul {
   left: 43%;
   top: 10%;
 }
+
 .ability-list {
   display: flex;
   align-items: center;
 }
+
 .icon-home {
   width: 28px;
   height: 28px;
@@ -163,6 +181,7 @@ ul {
   left: 0;
   top: 5px;
 }
+
 .icon-github {
   width: 28px;
   height: 28px;
@@ -170,19 +189,23 @@ ul {
   right: 0;
   top: 5px;
 }
+
 .preview-flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .right {
   margin-right: 35px;
 }
+
 .flex-right {
   display: flex;
   flex-direction: column;
   padding-top: 25px;
 }
+
 .flex-img {
   display: flex;
   flex-direction: column;
