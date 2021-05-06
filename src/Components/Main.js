@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchPokes } from '../Actions/action';
+import { fetchPokes, pokeFilter } from '../Actions/action';
 import Filter from './Filter';
 import red from '../ui/red.png';
 import yellow from '../ui/yellow.png';
@@ -27,6 +27,9 @@ const Main = ({ pokes, filterPokes, fetcher = fetchPokes() }) => {
       clearTimeout(timer1);
     };
   }, []);
+  const handleFilterChange = ((e) => {
+    dispatch(pokeFilter(e.target.value));
+  });
   const filteredPokes = filterPokes === '' ? pokes : pokes.filter((x) => x.name.toLowerCase().includes(filterPokes.toLowerCase()));
   return (
     <div className="container">
@@ -38,7 +41,7 @@ const Main = ({ pokes, filterPokes, fetcher = fetchPokes() }) => {
         ? (
           <div>
             <div />
-            <Filter />
+            <Filter filterHandler={handleFilterChange} />
             <div className="grid-main">
               {filteredPokes.map((poke) => {
                 i += 1;
@@ -74,10 +77,14 @@ const mapStateToProps = (state) => ({
 Main.propTypes = {
   pokes: PropTypes.arrayOf(PropTypes.object).isRequired,
   filterPokes: PropTypes.string,
-  fetcher: PropTypes.func.isRequired,
+  fetcher: PropTypes.exact({
+    type: PropTypes.string,
+    payload: PropTypes.array,
+  }),
 };
 
 Main.defaultProps = {
   filterPokes: '',
+  fetcher: undefined,
 };
 export default connect(mapStateToProps, null)(Main);

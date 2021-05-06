@@ -50,13 +50,19 @@ To get a local copy up and running follow these simple example steps.
     cd Pokemon-React-Capstone
 ```
 
-3- Run the app
+3- install the app
+
+```
+    npm install
+```
+
+4- Run the app
 
 ```
     npm start
 ```
 
-4- Test the app
+5- Test the app
 
 ```
     npm test

@@ -6,6 +6,7 @@ import {
 import Main from './Main';
 import Preview from './Preview';
 import '../style.css';
+import '../btn.scss';
 
 function App() {
   return (

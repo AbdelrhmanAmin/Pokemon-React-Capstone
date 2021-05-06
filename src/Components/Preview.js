@@ -9,7 +9,7 @@ import home from '../ui/home.png';
 import github from '../ui/github.png';
 
 const Preview = ({ poke }) => {
-  if (poke === undefined) {
+  if (poke === undefined || poke === {}) {
     const location = useLocation();
     // eslint-disable-next-line no-param-reassign
     poke = location.state.poke;
@@ -57,12 +57,16 @@ const Preview = ({ poke }) => {
 Preview.propTypes = {
   poke: PropTypes.exact({
     name: PropTypes.string,
-    sprites: PropTypes.array,
+    sprites: PropTypes.object,
     id: PropTypes.number,
     height: PropTypes.number,
     weight: PropTypes.number,
     abilities: PropTypes.array,
-  }).isRequired,
+  }),
+};
+
+Preview.defaultProps = {
+  poke: undefined,
 };
 
 export default Preview;

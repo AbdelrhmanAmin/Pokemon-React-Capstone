@@ -32,6 +32,6 @@ describe('rendered Main', () => {
   it('has an element with Pending text', () => {
     const { container } = renderedComponent;
     const appElement = container.querySelector('.pend');
-    expect(appElement).toHaveTextContent('Pending');
+    expect(appElement).toHaveTextContent('Loading...');
   });
 });
