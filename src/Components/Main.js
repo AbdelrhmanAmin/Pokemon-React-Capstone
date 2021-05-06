@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchPokes, pokeFilter } from '../Actions/action';
+import { fetchPokes, pokeFilter, pokeLoading } from '../Actions/action';
 import Filter from './Filter';
 import red from '../ui/red.png';
 import yellow from '../ui/yellow.png';
@@ -13,19 +13,15 @@ import green from '../ui/green.png';
 import orange from '../ui/orange.png';
 import text from '../ui/text.png';
 
-const Main = ({ pokes, filterPokes, fetcher = fetchPokes() }) => {
-  const [pending, setPending] = useState(true);
+const Main = ({
+  pokes, filterPokes, fetcher = fetchPokes(), loading = true,
+}) => {
   const frames = [red, yellow, silver, sky, gold, green, orange];
   let i = 0;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetcher);
-    const timer1 = setTimeout(() => {
-      setPending(false);
-    }, 2000);
-    return () => {
-      clearTimeout(timer1);
-    };
+    dispatch(pokeLoading(false));
   }, []);
   const handleFilterChange = ((e) => {
     dispatch(pokeFilter(e.target.value));
@@ -37,7 +33,7 @@ const Main = ({ pokes, filterPokes, fetcher = fetchPokes() }) => {
         <img src={text} alt="text-img" width="150" />
         <strong className="App-strong">Gotta Catch Em All!</strong>
       </div>
-      {!pending
+      {!loading
         ? (
           <div>
             <div />
@@ -63,6 +59,7 @@ const Main = ({ pokes, filterPokes, fetcher = fetchPokes() }) => {
         : (
           <div>
             <h1 className="pend">Loading...</h1>
+            <span>{loading}</span>
             <img src="https://i.pinimg.com/originals/4e/a2/3e/4ea23e6339937b95a8aa5cd08eeb3266.gif" alt="gif" />
           </div>
         )}
@@ -72,11 +69,13 @@ const Main = ({ pokes, filterPokes, fetcher = fetchPokes() }) => {
 const mapStateToProps = (state) => ({
   pokes: state.pokesReducer.pokes,
   filterPokes: state.pokesReducer.filter,
+  loading: state.pokesReducer.loading,
 });
 
 Main.propTypes = {
   pokes: PropTypes.arrayOf(PropTypes.object).isRequired,
   filterPokes: PropTypes.string,
+  loading: PropTypes.bool,
   fetcher: PropTypes.exact({
     type: PropTypes.string,
     payload: PropTypes.array,
@@ -85,6 +84,7 @@ Main.propTypes = {
 
 Main.defaultProps = {
   filterPokes: '',
+  loading: true,
   fetcher: undefined,
 };
 export default connect(mapStateToProps, null)(Main);

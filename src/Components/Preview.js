@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  useLocation,
+  useLocation, Link,
 } from 'react-router-dom';
 import icon from '../ui/ability.png';
 import fire from '../ui/fire.png';
@@ -16,7 +16,7 @@ const Preview = ({ poke }) => {
   }
   return (
     <div className="preview-container">
-      <a href="/"><img className="icon-home" alt="icon" src={home} /></a>
+      <Link to="/"><img className="icon-home" alt="icon" src={home} /></Link>
       <a href="https://github.com/AbdelrhmanAmin/Pokemon-React-Capstone" target="_blank" rel="noreferrer"><img className="icon-github" alt="icon" src={github} /></a>
       <div>
         <h3 className="poke-name">{poke.name}</h3>

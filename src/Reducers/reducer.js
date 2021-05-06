@@ -1,6 +1,7 @@
 const initialState = {
   pokes: [],
   filter: '',
+  loading: true,
 };
 
 export default function pokesReducer(state = initialState, action) {
@@ -15,6 +16,11 @@ export default function pokesReducer(state = initialState, action) {
       return {
         ...state,
         filter: action.filter,
+      };
+    case 'LOADING':
+      return {
+        ...state,
+        loading: action.state,
       };
     default:
       return state;

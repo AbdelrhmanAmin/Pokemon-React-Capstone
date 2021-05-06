@@ -29,9 +29,9 @@ describe('rendered Main', () => {
     const appElement = container.querySelector('strong');
     expect(appElement).toHaveTextContent('Gotta Catch Em All!');
   });
-  it('has an element with Pending text', () => {
+  it('no element with Pending text after rendering', () => {
     const { container } = renderedComponent;
     const appElement = container.querySelector('.pend');
-    expect(appElement).toHaveTextContent('Loading...');
+    expect(appElement).not.toBeInTheDocument();
   });
 });

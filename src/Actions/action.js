@@ -9,6 +9,10 @@ export const pokeFilter = (filter) => ({
   type: 'FILTER',
   filter,
 });
+export const pokeLoading = (state) => ({
+  type: 'LOADING',
+  state,
+});
 
 export const fetchPokes = () => (dispatch) => {
   const arr = [];

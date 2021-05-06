@@ -40,7 +40,6 @@ describe('rendered Main elements', () => {
       weight: 200,
       height: 8,
     }];
-    jest.useFakeTimers();
     act(() => {
       renderedComponent = render(
         <Provider store={store}>
@@ -49,7 +48,6 @@ describe('rendered Main elements', () => {
           </Router>
         </Provider>,
       );
-      jest.advanceTimersByTime(2200);
     });
   });
   it('has a figure with class tint', () => {
@@ -115,7 +113,6 @@ describe('rendered Main roles', () => {
       weight: 200,
       height: 8,
     }];
-    jest.useFakeTimers();
     act(() => {
       renderedComponent = render(
         <Provider store={store}>
@@ -124,7 +121,6 @@ describe('rendered Main roles', () => {
           </Router>
         </Provider>,
       );
-      jest.advanceTimersByTime(2200);
     });
   });
   it('renders the input form', () => {
