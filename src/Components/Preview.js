@@ -1,12 +1,18 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
-import { connect } from 'react-redux';
+import {
+  useLocation
+} from "react-router-dom";
 import icon from '../ui/ability.png'
 import fire from '../ui/fire.png'
 import home from '../ui/home.png'
 import github from '../ui/github.png'
-const Preview = ({ pokes, id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1) }) => {
-  const poke = pokes.filter((x) => x.id.toString() === id.toString())[0]
+const Preview = ({ poke }) => {
+  if (poke === undefined) {
+    const location = useLocation();
+    poke = location.state.poke
+  }
   return (
     <div className='preview-container' >
       <a href='/'><img className='icon-home' alt='icon' src={home} /></a>
@@ -41,9 +47,4 @@ const Preview = ({ pokes, id = window.location.href.substring(window.location.hr
     </div>
   );
 }
-const mapStateToProps = (state) => {
-  return {
-    pokes: state.pokesReducer.pokes,
-  }
-}
-export default connect(mapStateToProps, null)(Preview);
+export default Preview

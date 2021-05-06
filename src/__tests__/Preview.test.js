@@ -1,15 +1,11 @@
 import React from 'react';
-import { render, act, getAllByRole } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Provider } from 'react-redux';
-import { pokeSuccess } from '../Actions/action';
-import store from '../Reducers';
 import Preview from '../Components/Preview';
-
 describe('rendered Preview elements', () => {
   let renderedComponent;
   beforeEach(() => {
-    const pokes = [{
+    const poke = {
       id: 30,
       name: 'nidorina1',
       sprites: {
@@ -36,72 +32,10 @@ describe('rendered Preview elements', () => {
       ],
       weight: 200,
       height: 8
-    },
-    {
-      id: 31,
-      name: 'nidorina2',
-      sprites: {
-        back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png",
-        front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
-      },
-      weight: 200,
-      height: 8,
-      abilities: [
-        {
-          ability: {
-            name: "overgrow",
-            url: "https://pokeapi.co/api/v2/ability/65/"
-          },
-          is_hidden: false,
-          slot: 1
-        },
-        {
-          ability: {
-            name: "chlorophyll",
-            url: "https://pokeapi.co/api/v2/ability/34/"
-          },
-          is_hidden: true,
-          slot: 3
-        }
-      ]
-    },
-    {
-      id: 32,
-      name: 'nidorina3',
-      sprites: {
-        back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png",
-        front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
-      },
-      weight: 200,
-      height: 8,
-      abilities: [
-        {
-          ability: {
-            name: "overgrow",
-            url: "https://pokeapi.co/api/v2/ability/65/"
-          },
-          is_hidden: false,
-          slot: 1
-        },
-        {
-          ability: {
-            name: "chlorophyll",
-            url: "https://pokeapi.co/api/v2/ability/34/"
-          },
-          is_hidden: true,
-          slot: 3
-        }
-      ]
-    }];
-    jest.useFakeTimers();
-    act(() => {
-      renderedComponent = render(
-        <Provider store={store}>
-          <Preview pokes={pokes} fetcher={pokeSuccess(pokes)} id={30} />
-        </Provider>,
-      );
-      jest.advanceTimersByTime(3000);
-    });
+    };
+    renderedComponent = render(
+      <Preview poke={poke} />
+    );
   })
   it('has an img with class icon-home', () => {
     const { container } = renderedComponent;
@@ -143,7 +77,7 @@ describe('rendered Preview elements', () => {
 describe('rendered Preview roles', () => {
   let renderedComponent;
   beforeEach(() => {
-    const pokes = [{
+    const poke = {
       id: 30,
       name: 'nidorina1',
       sprites: {
@@ -170,72 +104,10 @@ describe('rendered Preview roles', () => {
       ],
       weight: 200,
       height: 8
-    },
-    {
-      id: 31,
-      name: 'nidorina2',
-      sprites: {
-        back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png",
-        front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
-      },
-      weight: 200,
-      height: 8,
-      abilities: [
-        {
-          ability: {
-            name: "overgrow",
-            url: "https://pokeapi.co/api/v2/ability/65/"
-          },
-          is_hidden: false,
-          slot: 1
-        },
-        {
-          ability: {
-            name: "chlorophyll",
-            url: "https://pokeapi.co/api/v2/ability/34/"
-          },
-          is_hidden: true,
-          slot: 3
-        }
-      ]
-    },
-    {
-      id: 32,
-      name: 'nidorina3',
-      sprites: {
-        back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png",
-        front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
-      },
-      weight: 200,
-      height: 8,
-      abilities: [
-        {
-          ability: {
-            name: "overgrow",
-            url: "https://pokeapi.co/api/v2/ability/65/"
-          },
-          is_hidden: false,
-          slot: 1
-        },
-        {
-          ability: {
-            name: "chlorophyll",
-            url: "https://pokeapi.co/api/v2/ability/34/"
-          },
-          is_hidden: true,
-          slot: 3
-        }
-      ]
-    }];
-    jest.useFakeTimers();
-    act(() => {
-      renderedComponent = render(
-        <Provider store={store}>
-          <Preview pokes={pokes} fetcher={pokeSuccess(pokes)} id={30} />
-        </Provider>,
-      );
-      jest.advanceTimersByTime(3000);
-    });
+    };
+    renderedComponent = render(
+      <Preview poke={poke} />
+    );
   })
   it('renders the link for the icon', () => {
     const { getAllByRole } = renderedComponent;

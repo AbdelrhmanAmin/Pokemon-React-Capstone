@@ -46,7 +46,7 @@ const Main = ({ pokes, filterPokes, fetcher = fetchPokes() }) => {
                   i = 0;
                 }
                 return (
-                  <Link to={`/${poke.id}`} className='link-bg' style={{ backgroundImage: `url(${frames[i]})` }} key={Math.random()}>
+                  <Link to={{ pathname: `/${poke.id}`, state: { poke: poke } }} className='link-bg' style={{ backgroundImage: `url(${frames[i]})` }} key={Math.random()}>
                     <figure className="tint">
                       <img src={`https://pokeres.bastionbot.org/images/pokemon/${poke.id}.png`} alt={poke.id} className='pokemon' />
                       <h3 className={`h-${i}`}>{poke.name}</h3>
@@ -58,7 +58,7 @@ const Main = ({ pokes, filterPokes, fetcher = fetchPokes() }) => {
           </div>
         )
         : <div>
-          <h1 className='pend'>Pending</h1>
+          <h1 className='pend'>Loading...</h1>
           <img src='https://i.pinimg.com/originals/4e/a2/3e/4ea23e6339937b95a8aa5cd08eeb3266.gif' alt='gif' />
         </div>
       }
