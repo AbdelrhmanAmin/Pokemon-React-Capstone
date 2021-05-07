@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Preview from '../Components/Preview';
 import {
   BrowserRouter as Router,
 } from 'react-router-dom';
+import Preview from '../Components/Preview';
 
 describe('rendered Preview elements', () => {
   let renderedComponent;
@@ -43,7 +43,7 @@ describe('rendered Preview elements', () => {
           <Preview poke={poke} />
         </Router>,
       );
-    })
+    });
   });
   it('has an img with class icon-home', () => {
     const { container } = renderedComponent;
@@ -119,7 +119,7 @@ describe('rendered Preview roles', () => {
           <Preview poke={poke} />
         </Router>,
       );
-    })
+    });
   });
   it('renders the link for the icon', () => {
     const { getAllByRole } = renderedComponent;
