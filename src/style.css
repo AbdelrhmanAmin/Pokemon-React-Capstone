@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+/* Works on Chrome, Edge, and Safari */
+.App-strong {
+  color: white;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: orange;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 20px;
+  border: 3px solid orange;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  background-color: #222;
+  background-image: url('./ui/bg.jpg');
+  background-position: 50% 50%;
+}
+
+.grid-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 20px;
+  background-color: #222;
+  overflow-y: scroll;
+  height: 350px;
+  background-image: url('./ui/bg.jpg');
+  background-position: 50% 60%;
+  border: 1px dashed #222;
+}
+
+@media only screen and (max-width: 1125px) {
+  .grid-main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .grid-main {
+    grid-template-columns: 1fr;
+    background-position: 50% 60%;
+  }
+}
+
+.link-bg {
+  margin-top: 5px;
+  background-size: 200px auto;
+  background-repeat: no-repeat;
+  background-position: 50% 20%;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #0074d9;
+  font-family: 'Orbitron', sans-serif;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+}
+
+.pokemon {
+  width: 115px;
+  margin-left: 5px;
+  margin-top: 15px;
+}
+
+.tint {
+  position: relative;
+  float: left;
+  cursor: pointer;
+  width: 200px;
+  height: 280px;
+}
+
+.tint::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -15px;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  transition: background 0.3s linear;
+  background: none;
+}
+
+.tint:hover::before {
+  background: rgba(0, 255, 255, 0.5);
+}
+
+.tint:hover {
+  color: #85144b;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.ability-icon-img {
+  margin-right: 10px;
+}
+
+.preview-container {
+  background-image: url(./ui/bg-preview.png);
+  width: 480px;
+  height: 380px;
+  background-position: 50% 0;
+  position: relative;
+}
+
+.poke-name {
+  color: white;
+  margin-left: 40px;
+  padding-top: 8px;
+  text-transform: capitalize;
+  font-family: 'MedievalSharp', cursive;
+}
+
+.poke-imgs {
+  display: flex;
+  justify-content: center;
+}
+
+.icon-ability {
+  display: flex;
+  justify-content: left;
+  margin-left: 35px;
+  font-family: 'MedievalSharp', cursive;
+  align-items: center;
+  color: white;
+}
+
+.icon {
+  transform: rotate(180deg);
+}
+
+.fire {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.abilities-list,
+.right {
+  font-family: 'MedievalSharp', cursive;
+  color: white;
+}
+
+.pend {
+  font-family: 'MedievalSharp', cursive;
+  color: black;
+  position: absolute;
+  left: 43%;
+  top: 10%;
+}
+
+.ability-list {
+  display: flex;
+  align-items: center;
+}
+
+.icon-home {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  left: 0;
+  top: 5px;
+}
+
+.icon-github {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  right: 0;
+  top: 5px;
+}
+
+.preview-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.right {
+  margin-right: 35px;
+}
+
+.flex-right {
+  display: flex;
+  flex-direction: column;
+  padding-top: 25px;
+}
+
+.flex-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
