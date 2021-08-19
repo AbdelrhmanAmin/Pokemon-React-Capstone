@@ -1,5 +1,5 @@
-$primary: #11998e;
-$secondary: #38ef7d;
+$primary: #ffbb00;
+$secondary: #ecbd30;
 $white: #fff;
 $gray: #9b9b9b;
 
@@ -60,6 +60,8 @@ $gray: #9b9b9b;
 
   padding-bottom: 6px;
   font-weight: 700;
+  border: 2px solid black;
+  border-left: 0;
   border-width: 3px;
   border-image: linear-gradient(to right, $primary, $secondary);
   border-image-slice: 1;

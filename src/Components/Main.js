@@ -47,7 +47,7 @@ const Main = ({
                 return (
                   <Link to={{ pathname: `/${poke.id}`, state: { poke } }} className="link-bg" style={{ backgroundImage: `url(${frames[i]})` }} key={Math.random()}>
                     <figure className="tint">
-                      <img src={`https://pokeres.bastionbot.org/images/pokemon/${poke.id}.png`} alt={poke.id} className="pokemon" />
+                      <img src={poke.sprites.front_default} alt={poke.id} className="pokemon" />
                       <h3 className={`h-${i}`}>{poke.name}</h3>
                     </figure>
                   </Link>
