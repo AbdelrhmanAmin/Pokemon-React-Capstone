@@ -22,7 +22,6 @@ const Preview = ({ poke }) => {
         <h3 className="poke-name">{poke.name}</h3>
         <div className="poke-imgs">
           <img width="120" src={poke.sprites.front_default} alt="poke-front" />
-          <img width="100" src={`https://pokeres.bastionbot.org/images/pokemon/${poke.id}.png`} alt="poke-img" />
           <img width="120" src={poke.sprites.back_default} alt="poke-back" />
         </div>
         <div className="preview-flex">
