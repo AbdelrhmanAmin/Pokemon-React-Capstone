@@ -20,9 +20,6 @@ The inspiration for the styling came while I was listening to a death metal song
 - CSS
 - ES6
 
-## Video
-
-[![Watch the video](./v1.png)](https://gist.github.com/AbdelrhmanAmin/6b173a70b2107bedcae8549c95c50d66)
 
 ## Live Demo
 
